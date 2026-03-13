@@ -14,6 +14,11 @@
         <h3 style="font-weight: bold;"><%= entry["title"] %></h3>
         <h4><%= entry["occurred_on"] %></h4>
         <p><%= entry["description"] %></p>
+        <% if entry.uploaded_image.attached? %>
+          <p>
+            <%= image_tag(entry.uploaded_image, style: "max-width: 100%; height: auto;") %>
+          </p>
+        <% end %>
       </div>
     <% end %>
   </div>
