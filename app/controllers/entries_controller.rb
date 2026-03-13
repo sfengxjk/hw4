@@ -15,7 +15,11 @@ class EntriesController < ApplicationController
   end
 
   def show
-    @entry = Entry.find_by({"id" => params["id"], "user_id" => session["user_id"]})
+    if session["user_id"] != nil
+      @entry = Entry.find_by({"id" => params["id"], "user_id" => session["user_id"]})
+    else
+      @entries = []
+    end
   end
 
 end
